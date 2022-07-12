@@ -1,0 +1,15 @@
+function Break(Harsh)
+local mouse = Harsh
+if mouse.Name == "Block" then
+game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+end
+end
+local Block = Instance.new("Part",Workspace)
+Block.CanCollide = false
+Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+Block.Size = Vector3.new(15,20,15)
+local Dis = Block.Touched:connect(Break)
+wait(0)
+Dis:Disconnect()
+Block:Destroy()
+wait(0)
